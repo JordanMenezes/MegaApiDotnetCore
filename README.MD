@@ -1,150 +1,161 @@
-<h1 align="center">
-  <br />
-  <img
-    src="./_docs/assets/icon.png"
-    alt="Mega Man Robots API"
-    width="150"
-  />
-  <br />
-  <b>Mega Man Robots API</b>
-  <br />
-  <sub
-    ><sup><b>(MEGA-MAN-ROBOTS)</b></sup></sub
-  >
-  <br />
-  <a
-    href="https://github.com/felipeAguiarCode/MegaApiDotnetCore/actions/workflows/build.yml"
-  >
-    <img
-      src="https://github.com/felipeAguiarCode/MegaApiDotnetCore/actions/workflows/build.yml/badge.svg"
-      alt=""
-    />
-  </a>
-  <a href="https://github.com/felipeAguiarCode/MegaApiDotnetCore/releases/latest">
-    <img
-      src="https://img.shields.io/github/v/release/felipeAguiarCode/MegaApiDotnetCore"
-      alt="Latest Release"
-    />
-  </a>
-</h1>
+# Documentação Completa do Repositório MegaApiDotnetCore
 
-<p align="center">
-  This .NET Core API is designed to serve JSON formatted data about bosses from
-  the Mega Man series. It is a backend service built with .NET Core 3.1 and
-  various modern dependencies for data management and API response handling.
-  <br />
-</p>
+## Índice
 
-<p align="center">
-  Developed with Entity Framework Core and other modern .NET technologies, this
-  project aims to provide a robust API for accessing Mega Man robot data.
-  <br />
-</p>
+1. [Descrição do Projeto](#descrição-do-projeto)
+2. [Características Principais](#características-principais)
+3. [Tecnologias Utilizadas](#tecnologias-utilizadas)
+4. [Estrutura do Projeto](#estrutura-do-projeto)
+5. [Endpoints da API](#endpoints-da-api)
+6. [Configuração do Ambiente](#configuração-do-ambiente)
+7. [Uso da API](#uso-da-api)
+8. [Testes](#testes)
+9. [Dependências](#dependências)
+10. [Licença](#licença)
+11. [Contribuição](#contribuição)
+12. [Contato](#contato)
 
-<p align="center">
-  <br />
-  <img src="./_docs/assets/carbon.png" />
-</p>
+## Descrição do Projeto
 
-## API Endpoints
+O **MegaApiDotnetCore** é uma API desenvolvida em **.NET Core** que oferece acesso a informações sobre os vilões do jogo **Mega Man**. O principal objetivo deste projeto é fornecer uma interface RESTful para acessar e manipular dados relacionados aos robôs do jogo, permitindo a integração com diferentes aplicações e serviços.
 
-<table align="center">
-  <tr>
-    <th>Method</th>
-    <th>Endpoint</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>GET</td>
-    <td>/api/v1/robots</td>
-    <td>Returns a list of all robots</td>
-  </tr>
-  <tr>
-    <td>GET</td>
-    <td>/api/v1/robots/{id}</td>
-    <td>Returns details of a specific robot by ID</td>
-  </tr>
-  <tr>
-    <td>POST</td>
-    <td>/api/v1/robots</td>
-    <td>Endpoint to create a new robot entry</td>
-  </tr>
-</table>
+## Características Principais
 
-## Techniques Used
+- **Interface RESTful**: A API segue os princípios REST para permitir fácil uso e integração.
+- **Formato JSON**: Os dados são retornados em formato JSON, que é amplamente utilizado e fácil de manipular.
+- **Persistência de Dados**: Utiliza o Entity Framework Core para gerenciar a persistência de dados em um banco de dados.
+- **Documentação de API**: A API inclui documentação que pode ser acessada via Swagger.
+- **Suporte a CRUD**: Permite operações de criação, leitura, atualização e exclusão (CRUD) para os vilões do Mega Man.
 
-<p align="center">
-  - <b>Entity Framework Core:</b> ORM for data management.<br />
-  - <b>RESTful API Design:</b> Ensures clear and effective communication
-  endpoints.<br />
-  - <b>Dependency Injection:</b> Used throughout to promote loose coupling and
-  enhanced testability.<br />
-</p>
+## Tecnologias Utilizadas
 
-## Dependencies
+- **.NET Core 3.1**: Framework para desenvolvimento de aplicações.
+- **Entity Framework Core**: ORM (Object-Relational Mapping) que facilita o acesso ao banco de dados.
+- **ASP.NET Core**: Plataforma para construir aplicativos web.
+- **Newtonsoft.Json**: Biblioteca para manipulação de dados em formato JSON.
+- **Swagger**: Ferramenta para documentação e teste de APIs.
 
-<table align="center">
-  <tr>
-    <th>Package</th>
-    <th>Version</th>
-    <th>Link</th>
-  </tr>
-  <tr>
-    <td>Microsoft.EntityFrameworkCore</td>
-    <td>3.1.8</td>
-    <td>
-      <a
-        href="https://www.nuget.org/packages/Microsoft.EntityFrameworkCore/3.1.8"
-        >NuGet</a
-      >
-    </td>
-  </tr>
-  <tr>
-    <td>Microsoft.EntityFrameworkCore.Design</td>
-    <td>3.1.8</td>
-    <td>
-      <a
-        href="https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Design/3.1.8"
-        >NuGet</a
-      >
-    </td>
-  </tr>
-  <tr>
-    <td>Microsoft.EntityFrameworkCore.SqlServer</td>
-    <td>3.1.8</td>
-    <td>
-      <a
-        href="https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/3.1.8"
-        >NuGet</a
-      >
-    </td>
-  </tr>
-  <tr>
-    <td>Newtonsoft.Json</td>
-    <td>12.0.2</td>
-    <td>
-      <a href="https://www.nuget.org/packages/Newtonsoft.Json/12.0.2">NuGet</a>
-    </td>
-  </tr>
-</table>
+## Estrutura do Projeto
 
-## :gear: Arch
+A estrutura do projeto segue a convenção padrão do ASP.NET Core e está organizada da seguinte forma:
 
-```🌐
+```plaintext
 src
-├── 📂 Controllers      [Routes for endpoints]
-├── 📂 Models           [Database models]
-├── 📂 Services         [Business rules]
-├── 📂 Middlewares      [Intermediate functions between the HTTP request and the final server response]
-├── 📂 Database         [Structures related to the database]
-│   ├── 📂 DTOs             [Input Models and View Models (Data Transfer Objects)]
-│   ├── 📂 EntityFramework  [Files related to the ORM Entity Framework]
-│   │     ├── 📂 Context         [Entity context settings]
-│   │     ├── 📂 Migrations      [Migrations for database updates]
-│   ├── 📂 Repositories     [Repository pattern]
+├── MegaApiDotnetCore
+│   ├── Controllers         [Controladores que gerenciam as rotas]
+│   ├── Models              [Modelos de dados]
+│   ├── Services            [Serviços e regras de negócio]
+│   ├── Database            [Estruturas relacionadas ao banco de dados]
+│   │   ├── Entities       [Modelos de entidades do banco]
+│   │   ├── DTOs           [Modelos de transferência de dados]
+│   │   ├── Migrations      [Migrações do banco de dados]
+│   │   ├── Context         [Configuração do contexto do EF]
+│   ├── Middleware          [Middleware personalizados]
+│   ├── Startup.cs          [Configuração da aplicação]
+│   └── Program.cs          [Ponto de entrada da aplicação]
 ```
 
-## License This software is licensed under the terms of the [MIT]
+## Endpoints da API
 
-⌨️ FelipeAguiar -
-[Github](https://github.com/felipeAguiarCode)
+Abaixo estão os principais endpoints da API:
+
+| Método | Endpoint               | Descrição                                    |
+|--------|------------------------|----------------------------------------------|
+| GET    | /api/v1/robots         | Retorna uma lista de todos os robôs         |
+| GET    | /api/v1/robots/{id}    | Retorna detalhes de um robô específico pelo ID |
+| POST   | /api/v1/robots         | Cria uma nova entrada de robô                |
+| PUT    | /api/v1/robots/{id}    | Atualiza os dados de um robô específico     |
+| DELETE | /api/v1/robots/{id}    | Remove um robô específico pelo ID            |
+
+### Exemplo de Resposta
+
+- **GET /api/v1/robots**
+
+```json
+[
+    {
+        "id": 1,
+        "name": "Cut Man",
+        "description": "Um robô com lâminas que corta tudo.",
+        "weakness": "Thunder Beam"
+    },
+    {
+        "id": 2,
+        "name": "Guts Man",
+        "description": "Um robô forte que pode levantar rochas.",
+        "weakness": "Ice Slasher"
+    }
+]
+```
+
+## Configuração do Ambiente
+
+Para configurar o ambiente para executar a API, siga os passos abaixo:
+
+1. **Clone o repositório**:
+   ```bash
+   git clone https://github.com/felipeAguiarCode/MegaApiDotnetCore.git
+   cd MegaApiDotnetCore
+   ```
+
+2. **Restaure as dependências**:
+   ```bash
+   dotnet restore
+   ```
+
+3. **Configure a string de conexão do banco de dados**:
+   - Abra o arquivo `appsettings.json` e configure a string de conexão para o seu banco de dados SQL Server.
+
+4. **Execute as migrações do banco de dados**:
+   ```bash
+   dotnet ef database update
+   ```
+
+5. **Execute a aplicação**:
+   ```bash
+   dotnet run
+   ```
+
+## Uso da API
+
+- Para testar os endpoints, você pode usar ferramentas como [Postman](https://www.postman.com/) ou [Insomnia](https://insomnia.rest/).
+- O Swagger está disponível na rota `/swagger` após a aplicação ser iniciada, permitindo explorar e testar a API diretamente do navegador.
+
+## Testes
+
+O projeto inclui testes unitários que podem ser executados para garantir que a aplicação funcione conforme o esperado. Para executar os testes, utilize o seguinte comando:
+
+```bash
+dotnet test
+```
+
+## Dependências
+
+| Pacote                              | Versão  | Link   |
+|-------------------------------------|---------|--------|
+| Microsoft.EntityFrameworkCore       | 3.1.8   | [NuGet](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore/) |
+| Microsoft.EntityFrameworkCore.Design | 3.1.8   | [NuGet](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Design/) |
+| Microsoft.EntityFrameworkCore.SqlServer | 3.1.8 | [NuGet](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/) |
+| Newtonsoft.Json                     | 12.0.2  | [NuGet](https://www.nuget.org/packages/Newtonsoft.Json/) |
+
+## Licença
+
+Este projeto está licenciado sob os termos da [MIT License](https://opensource.org/licenses/MIT).
+
+## Contribuição
+
+Contribuições são bem-vindas! Para contribuir, siga estas etapas:
+
+1. Faça um fork do repositório.
+2. Crie uma nova branch para sua feature (`git checkout -b feature/nome-da-feature`).
+3. Realize suas alterações e faça commit (`git commit -m 'Adiciona uma nova feature'`).
+4. Envie sua branch para o GitHub (`git push origin feature/nome-da-feature`).
+5. Abra um pull request no repositório original.
+
+## Contato
+
+Desenvolvedor: Felipe Aguiar  
+GitHub: [felipeAguiarCode](https://github.com/felipeAguiarCode)  
+Email: felipe.aguiar@example.com
+
+Para mais informações, acesse o repositório no [GitHub](https://github.com/felipeAguiarCode/MegaApiDotnetCore).
